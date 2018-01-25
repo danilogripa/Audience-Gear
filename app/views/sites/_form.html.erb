@@ -1,0 +1,46 @@
+<%= form_for @site do |f| %>
+
+	<div class="row">
+		<div class="col-md-12">
+			<h3 class="page-header">Site Information</h3>
+		</div>
+	</div>
+	<%= f.hidden_field :user_id %>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="form_group">
+				<%= f.label :name %>
+				<%= f.text_field :name, class: "form-control", placeholder: "Enter the site name." %>
+				<p class="help-block"></p>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="form_group">
+				<%= f.label :url %>
+				<%= f.text_field :url, class: "form-control", placeholder: "Enter the url." %>
+				<p class="help-block"></p>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="form_group">
+				<%= f.label :category %>
+				<%= f.text_field :category, class: "form-control", placeholder: "Enter the site name." %>
+				<p class="help-block"></p>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="form_group">
+				<%= f.label :type_site %>
+				<%= f.text_field :type_site, class: "form-control", placeholder: "Enter the url." %>
+				<p class="help-block"></p>
+			</div>
+		</div>
+	</div>
+
+	<p class="text-right">
+		<%= f.submit "Save", class: "btn btn-primary" %>
+	</p>
+
+<% end %>

@@ -1,0 +1,54 @@
+<div class="row">
+	<div class="col-md-12">
+		<h1 class="page-header">User #<%= @user.id %></h1>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12">
+		<div class="panel panel-default">
+		  <div class="panel-heading">User Information</div>
+		  <div class="panel-body">
+				<div class="row">
+					<div class="col-md-2 text-right">Company Name: </div>
+					<div class="col-md-10"><strong><%= @user.company_name %></strong></div>
+				</div>
+				<div class="row">
+					<div class="col-md-2 text-right">Email: </div>
+					<div class="col-md-10 text-left"><strong><%= @user.email %></strong></div>
+				</div>
+				<div class="row">
+					<div class="col-md-2 text-right">Contact Name: </div>
+					<div class="col-md-10 text-left"><strong><%= @user.contact_name %></strong></div>
+				</div>
+				<div class="row">
+					<div class="col-md-2 text-right">Phone: </div>
+					<div class="col-md-10 text-left"><strong><%= @user.phone %></strong></div>
+				</div>
+				<div class="row">
+					<div class="col-md-2 text-right">Cnpj: </div>
+					<div class="col-md-10 text-left"><strong><%= @user.cnpj %></strong></div>
+				</div>
+		  </div>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12">
+		<div class="panel panel-default">
+		  <div class="panel-heading">Sites Information <%= link_to "New Site", new_site_path(user_id: @user.id), class: "btn btn-.primary" %></div>
+			<% if @user.sites.count <= 0 %>
+				<div class="text-center text-danger">Usuario não possui site cadastrado</div>
+			<% else %>
+			  <table class="table">
+					<% @user.sites.each do |site| %>
+						<tr>
+							<td><%= site.url %></td>
+							<td><%= site.name %></td>
+							<td><span class="glyphicon glyphicon-cog"></span></td>
+						</tr>
+					<% end %>
+				</table>
+			<% end %>
+		</div>
+	</div>
+</div>
