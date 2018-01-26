@@ -12,33 +12,8 @@
 
 ActiveRecord::Schema.define(version: 20171204161035) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
-  create_table "advertisers", force: :cascade do |t|
-    t.string "company_name"
-    t.string "contact_name"
-    t.string "email"
-    t.string "phone"
-    t.integer "status"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "campaigns", force: :cascade do |t|
-    t.bigint "advertiser_id"
-    t.string "name"
-    t.string "utm_campaing"
-    t.string "code_campaing"
-    t.text "tag"
-    t.integer "status"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["advertiser_id"], name: "index_campaigns_on_advertiser_id"
-  end
-
   create_table "sites", force: :cascade do |t|
-    t.bigint "user_id"
+    t.integer "user_id"
     t.string "name"
     t.string "url"
     t.string "category"
@@ -60,6 +35,4 @@ ActiveRecord::Schema.define(version: 20171204161035) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "campaigns", "advertisers"
-  add_foreign_key "sites", "users"
 end
