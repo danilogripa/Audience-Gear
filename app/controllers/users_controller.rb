@@ -53,6 +53,7 @@ class UsersController < ApplicationController
 			:status,
 			:created_at,
 			:updated_at,
+			:rtg_tag
 			sites_attributes: [
 				:name,
 				:url,
