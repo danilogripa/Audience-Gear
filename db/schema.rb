@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180127004700) do
+ActiveRecord::Schema.define(version: 20180127012411) do
 
   create_table "sites", force: :cascade do |t|
     t.integer "user_id"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20180127004700) do
     t.string "type_site"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "partner"
     t.index ["user_id"], name: "index_sites_on_user_id"
   end
 

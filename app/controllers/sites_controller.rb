@@ -17,6 +17,25 @@ class SitesController < ApplicationController
 		end
   end
 
+  def edit
+    @site = Site.find params[:id]
+  end
+
+  def update
+		@site = Site.find(params[:id])
+		if @site.update(site_params)
+			redirect_to user_path(@site.user_id)
+		else
+			render 'edit'
+		end
+	end
+
+  def destroy
+		@site = Site.find(params[:id])
+		@site.destroy
+		redirect_to user_path(@site.user_id)
+	end
+
   private
 
   def site_params
@@ -25,7 +44,8 @@ class SitesController < ApplicationController
       :name,
       :url,
       :category,
-      :type_site
+      :type_site,
+      :partner
     )
   end
 

@@ -52,7 +52,8 @@
 						<tr>
 							<td><%= site.url %></td>
 							<td><%= site.name %></td>
-							<td><span class="glyphicon glyphicon-cog"></span></td>
+							<td><%= link_to "Edit", edit_site_path(site)  %></td>
+							<td><%= link_to 'Delete', site_path(site), method: :delete, data: { confirm: 'Are you sure?' } %></td>
 						</tr>
 					<% end %>
 				</table>
