@@ -9,6 +9,22 @@
 		  <div class="panel-heading">User Information</div>
 		  <div class="panel-body">
 				<div class="row">
+					<div class="col-md-2 text-right">Status: </div>
+					<div class="col-md-10">
+						<% if @user.status? == true %>
+							<strong>On</strong>
+						<% else %>
+							<strong>Off</strong>
+						<% end %>
+
+						<%= link_to user_active_path(@user.id) do %>
+							<%= "Ativar" if @user.status? == false %>
+							<%= "Desativar" if @user.status? == true %>
+						<% end %>
+
+					</div>
+				</div>
+				<div class="row">
 					<div class="col-md-2 text-right">Company Name: </div>
 					<div class="col-md-10"><strong><%= @user.company_name %></strong></div>
 				</div>
@@ -48,10 +64,26 @@
 				<div class="text-center text-danger">Usuario não possui site cadastrado</div>
 			<% else %>
 			  <table class="table">
+						<tr>
+							<th>Url</th>
+							<th>Name</th>
+							<th>Status</th>
+							<th></th>
+							<th></th>
+						</tr>
 					<% @user.sites.each do |site| %>
 						<tr>
 							<td><%= site.url %></td>
 							<td><%= site.name %></td>
+							<td>
+								<%= link_to site_active_path(site) do %>
+									<% if site.active == true %>
+										On
+									<% else %>
+										Off
+									<% end %>
+								<% end %>
+							</td>
 							<td><%= link_to "Edit", edit_site_path(site)  %></td>
 							<td><%= link_to 'Delete', site_path(site), method: :delete, data: { confirm: 'Are you sure?' } %></td>
 						</tr>

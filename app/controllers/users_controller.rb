@@ -13,10 +13,14 @@ class UsersController < ApplicationController
 	def create
 		@user = User.new(user_params)
 		if @user.save
+			#http://stalksystem-dev.sa-east-1.elasticbeanstalk.com
+			@user.rtg_tag = "<script type=\"text/javascript\" src=\"https://localhost:3000/rtg?campaign=#{@user.id}&name=#{@user.company_name}\"></script>"
+			@user.save
 			redirect_to @user
 		else
 			render 'new'
 		end
+
 	end
 
 	def show
@@ -41,6 +45,17 @@ class UsersController < ApplicationController
 		@user.destroy
 		redirect_to @user
 	end
+
+	def active
+    @user = User.find(params[:user_id])
+    if @user.status == false
+      @user.status = true
+    else
+      @user.status = false
+    end
+    @user.save
+    redirect_to @user
+  end
 
 	private
 

@@ -7,7 +7,7 @@ class CreateUsers < ActiveRecord::Migration[5.1]
       t.string :phone
       t.string :cnpj
       t.integer :user_type
-      t.integer :status
+      t.boolean :status, default: true
 
       t.timestamps
     end

@@ -36,6 +36,17 @@ class SitesController < ApplicationController
 		redirect_to user_path(@site.user_id)
 	end
 
+  def active
+    @site = Site.find(params[:site_id])
+    if @site.active == false
+      @site.active = true
+    else
+      @site.active = false
+    end
+    @site.save
+    redirect_to user_path(@site.user_id)
+  end
+
   private
 
   def site_params

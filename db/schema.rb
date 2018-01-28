@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180128010742) do
+ActiveRecord::Schema.define(version: 20180128013535) do
 
   create_table "admin_users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20180128010742) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "partner"
+    t.boolean "active", default: true
     t.index ["user_id"], name: "index_sites_on_user_id"
   end
 
@@ -48,7 +49,7 @@ ActiveRecord::Schema.define(version: 20180128010742) do
     t.string "phone"
     t.string "cnpj"
     t.integer "user_type"
-    t.integer "status"
+    t.boolean "status", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "rtg_tag"
