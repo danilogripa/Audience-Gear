@@ -14,7 +14,7 @@ class UsersController < ApplicationController
 		@user = User.new(user_params)
 		if @user.save
 			#http://stalksystem-dev.sa-east-1.elasticbeanstalk.com
-			@user.rtg_tag = "<script type=\"text/javascript\" src=\"https://localhost:3000/rtg?campaign=#{@user.id}&name=#{@user.company_name}\"></script>"
+			@user.rtg_tag = "<script type=\"text/javascript\" src=\"localhost:3000/rtg?campaign=#{@user.id}&name=#{@user.company_name}\"></script>"
 			@user.save
 			redirect_to @user
 		else
