@@ -14,7 +14,7 @@ class CampaignsController < ApplicationController
 		@campaign = Campaign.new(campaign_params)
 		if @campaign.save
 			#http://stalksystem-dev.sa-east-1.elasticbeanstalk.com
-			@campaign.rtg_tag = "<script type=\"text/javascript\" src=\"localhost:3000/rtg?campaign=#{@campaign.id}&name=#{@campaign.company_name}\"></script>"
+			@campaign.rtg_tag = "<script type=\"text/javascript\" src=\"http://stalksystem-dev.sa-east-1.elasticbeanstalk.com/rtg?campaign=#{@campaign.id}&name=#{@campaign.company_name}\"></script>"
 			@campaign.save
 			redirect_to @campaign
 		else
