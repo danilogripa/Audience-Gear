@@ -29,8 +29,21 @@ ActiveRecord::Schema.define(version: 20180128013535) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
+  create_table "campaigns", force: :cascade do |t|
+    t.string "company_name"
+    t.string "email"
+    t.string "contact_name"
+    t.string "phone"
+    t.string "cnpj"
+    t.integer "campaign_type"
+    t.boolean "status", default: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "rtg_tag"
+  end
+
   create_table "sites", force: :cascade do |t|
-    t.integer "user_id"
+    t.integer "campaign_id"
     t.string "name"
     t.string "url"
     t.string "category"
@@ -39,20 +52,7 @@ ActiveRecord::Schema.define(version: 20180128013535) do
     t.datetime "updated_at", null: false
     t.text "partner"
     t.boolean "active", default: true
-    t.index ["user_id"], name: "index_sites_on_user_id"
-  end
-
-  create_table "users", force: :cascade do |t|
-    t.string "company_name"
-    t.string "email"
-    t.string "contact_name"
-    t.string "phone"
-    t.string "cnpj"
-    t.integer "user_type"
-    t.boolean "status", default: true
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.text "rtg_tag"
+    t.index ["campaign_id"], name: "index_sites_on_campaign_id"
   end
 
 end

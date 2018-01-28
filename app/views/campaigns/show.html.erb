@@ -1,6 +1,6 @@
 <div class="row">
 	<div class="col-md-12">
-		<h1 class="page-header">Campaign #<%= @user.id %></h1>
+		<h1 class="page-header">Campaign #<%= @campaign.id %></h1>
 	</div>
 </div>
 <div class="row">
@@ -11,44 +11,44 @@
 				<div class="row">
 					<div class="col-md-2 text-right">Status: </div>
 					<div class="col-md-10">
-						<% if @user.status? == true %>
+						<% if @campaign.status? == true %>
 							<strong>On</strong>
 						<% else %>
 							<strong>Off</strong>
 						<% end %>
 
-						<%= link_to user_active_path(@user.id) do %>
-							<%= "Ativar" if @user.status? == false %>
-							<%= "Desativar" if @user.status? == true %>
+						<%= link_to campaign_active_path(@campaign.id) do %>
+							<%= "Ativar" if @campaign.status? == false %>
+							<%= "Desativar" if @campaign.status? == true %>
 						<% end %>
 
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-md-2 text-right">Company Name: </div>
-					<div class="col-md-10"><strong><%= @user.company_name %></strong></div>
+					<div class="col-md-10"><strong><%= @campaign.company_name %></strong></div>
 				</div>
 				<div class="row">
 					<div class="col-md-2 text-right">Email: </div>
-					<div class="col-md-10 text-left"><strong><%= @user.email %></strong></div>
+					<div class="col-md-10 text-left"><strong><%= @campaign.email %></strong></div>
 				</div>
 				<div class="row">
 					<div class="col-md-2 text-right">Contact Name: </div>
-					<div class="col-md-10 text-left"><strong><%= @user.contact_name %></strong></div>
+					<div class="col-md-10 text-left"><strong><%= @campaign.contact_name %></strong></div>
 				</div>
 				<div class="row">
 					<div class="col-md-2 text-right">Phone: </div>
-					<div class="col-md-10 text-left"><strong><%= @user.phone %></strong></div>
+					<div class="col-md-10 text-left"><strong><%= @campaign.phone %></strong></div>
 				</div>
 				<div class="row">
 					<div class="col-md-2 text-right">Cnpj: </div>
-					<div class="col-md-10 text-left"><strong><%= @user.cnpj %></strong></div>
+					<div class="col-md-10 text-left"><strong><%= @campaign.cnpj %></strong></div>
 				</div>
 				<div class="row">
 					<div class="col-md-2 text-right">Rtg Tag: </div>
 					<div class="col-md-10 text-left">
-						<textarea name="name" rows="8" cols="80">
-							<%= @user.rtg_tag %>
+						<textarea name="name" rows="6" cols="100" disabled>
+							<%= @campaign.rtg_tag %>
 						</textarea>
 					</div>
 				</div>
@@ -59,8 +59,8 @@
 <div class="row">
 	<div class="col-md-12">
 		<div class="panel panel-default">
-		  <div class="panel-heading">Sites Information <%= link_to "New Site", new_site_path(user_id: @user.id), class: "btn btn-.primary" %></div>
-			<% if @user.sites.count <= 0 %>
+		  <div class="panel-heading">Sites Information <%= link_to "New Site", new_site_path(campaign_id: @campaign.id), class: "btn btn-.primary" %></div>
+			<% if @campaign.sites.count <= 0 %>
 				<div class="text-center text-danger">Usuario não possui site cadastrado</div>
 			<% else %>
 			  <table class="table">
@@ -71,7 +71,7 @@
 							<th></th>
 							<th></th>
 						</tr>
-					<% @user.sites.each do |site| %>
+					<% @campaign.sites.each do |site| %>
 						<tr>
 							<td><%= site.url %></td>
 							<td><%= site.name %></td>

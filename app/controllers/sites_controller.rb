@@ -5,13 +5,13 @@ class SitesController < ApplicationController
   end
 
   def new
-    @site = Site.new(user_id: params[:user_id])
+    @site = Site.new(campaign_id: params[:campaign_id])
   end
 
   def create
     @site = Site.new(site_params)
 		if @site.save
-			redirect_to user_path(@site.user_id)
+			redirect_to campaign_path(@site.campaign_id)
 		else
 			render 'new'
 		end
@@ -24,7 +24,7 @@ class SitesController < ApplicationController
   def update
 		@site = Site.find(params[:id])
 		if @site.update(site_params)
-			redirect_to user_path(@site.user_id)
+			redirect_to campaign_path(@site.campaign_id)
 		else
 			render 'edit'
 		end
@@ -33,7 +33,7 @@ class SitesController < ApplicationController
   def destroy
 		@site = Site.find(params[:id])
 		@site.destroy
-		redirect_to user_path(@site.user_id)
+		redirect_to campaign_path(@site.campaign_id)
 	end
 
   def active
@@ -44,14 +44,14 @@ class SitesController < ApplicationController
       @site.active = false
     end
     @site.save
-    redirect_to user_path(@site.user_id)
+    redirect_to campaign_path(@site.campaign_id)
   end
 
   private
 
   def site_params
     params.require(:site).permit(
-      :user_id,
+      :campaign_id,
       :name,
       :url,
       :category,

@@ -14,4 +14,13 @@
 //= require jquery_ujs
 //= require rails-ujs
 //= require turbolinks
+//= require jquery.inputmask
+//= require jquery.inputmask.extensions
+//= require jquery.inputmask.numeric.extensions
+//= require jquery.inputmask.date.extensions
 //= require_tree .
+
+
+$(document).ready(function(){
+  $("#campaign_phone").inputmask({"mask": "(99) 9999-9999?"}); //specifying options
+});
