@@ -1,0 +1,50 @@
+<div class="row">
+	<div class="col-md-12">
+		<h1 class="page-header">Advertiser #<%= @advertiser.id %></h1>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12">
+		<div class="panel panel-default">
+		  <div class="panel-heading">Advertiser Information</div>
+		  <div class="panel-body">
+				<div class="row">
+					<div class="col-md-2 text-right">Status: </div>
+					<div class="col-md-10">
+						<% if @advertiser.status? == true %>
+							<strong>On</strong>
+						<% else %>
+							<strong>Off</strong>
+						<% end %>
+
+						<%= link_to advertiser_active_path(@advertiser.id) do %>
+							<%= "Ativar" if @advertiser.status? == false %>
+							<%= "Desativar" if @advertiser.status? == true %>
+						<% end %>
+
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-2 text-right">Company Name: </div>
+					<div class="col-md-10"><strong><%= @advertiser.company_name %></strong></div>
+				</div>
+				<div class="row">
+					<div class="col-md-2 text-right">Email: </div>
+					<div class="col-md-10 text-left"><strong><%= @advertiser.email %></strong></div>
+				</div>
+				<div class="row">
+					<div class="col-md-2 text-right">Contact Name: </div>
+					<div class="col-md-10 text-left"><strong><%= @advertiser.contact_name %></strong></div>
+				</div>
+				<div class="row">
+					<div class="col-md-2 text-right">Phone: </div>
+					<div class="col-md-10 text-left"><strong><%= @advertiser.phone %></strong></div>
+				</div>
+				<div class="row">
+					<div class="col-md-2 text-right">Cnpj: </div>
+					<div class="col-md-10 text-left"><strong><%= @advertiser.cnpj %></strong></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

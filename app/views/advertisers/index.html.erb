@@ -1,0 +1,56 @@
+<div class="row">
+	<div class="col-md-12">
+		<h1 class="page-header">Advertiser</h1>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				Users List
+			</div>
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-md-12">
+						<p class="text-right">
+							<%= link_to new_advertiser_path, class: "btn btn-primary" do %>
+								Create Advertiser
+							<% end %>
+						</p>
+					</div>
+				</div>
+				<div class="table-reponsive">
+					<table class="table table-striped table-bordered table-hover">
+						<thead>
+							<tr>
+								<td>id</td>
+								<td>Company Name</td>
+								<td>Email</td>
+								<td>Phone</td>
+								<td></td>
+							</tr>
+						</thead>
+						<tbody>
+							<% @advertisers.each do |advertiser| %>
+								<tr>
+									<td><%= advertiser.id %></td>
+									<td><%= advertiser.company_name %></td>
+									<td><%= advertiser.email %></td>
+									<td><%= advertiser.phone %></td>
+									<td>
+										<%= link_to "Show", advertiser_path(advertiser) %>
+										<%= link_to "Edit", edit_advertiser_path(advertiser) %>
+										<%= link_to 'Destroy', advertiser_path(advertiser), method: :delete, data: { confirm: 'Are you sure?' } %>
+									</td>
+								</tr>
+							<% end %>
+						</tbody>
+					</table>
+					<div class="text-right">
+						<%= will_paginate @advertisers, renderer: BootstrapPagination::Rails %>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
