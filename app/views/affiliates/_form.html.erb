@@ -1,8 +1,8 @@
-<%= form_for @site do |f| %>
+<%= form_for @affiliate do |f| %>
 
 	<div class="row">
 		<div class="col-md-12">
-			<h3 class="page-header">Site Information</h3>
+			<h3 class="page-header">Affiliate Information</h3>
 		</div>
 	</div>
 	<%= f.hidden_field :campaign_id %>
@@ -14,6 +14,8 @@
 				<p class="help-block"></p>
 			</div>
 		</div>
+	</div>
+	<div class="row">
 		<div class="col-md-6">
 			<div class="form_group">
 				<%= f.label :url %>
@@ -30,15 +32,11 @@
 				<p class="help-block"></p>
 			</div>
 		</div>
+	</div>
+	<div class="row">
 		<div class="col-md-6">
 			<div class="form_group">
-				<%= f.label :type_site %>
-				<%= f.text_field :type_site, class: "form-control", placeholder: "Enter the url." %>
-				<p class="help-block"></p>
-			</div>
-		</div>
-		<div class="col-md-6">
-			<div class="form_group">
+				<%= f.label :tag %>
 				<%= f.text_area :partner, cols: 20, rows: 5, class: "form-control" %>
 				<p class="help-block"></p>
 			</div>

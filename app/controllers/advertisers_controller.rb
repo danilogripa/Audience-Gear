@@ -46,10 +46,10 @@ class AdvertisersController < ApplicationController
 
 	def active
     @advertiser = Advertiser.find(params[:advertiser_id])
-    if @advertiser.status == false
-      @advertiser.status = true
+    if @advertiser.active == false
+      @advertiser.active = true
     else
-      @advertiser.status = false
+      @advertiser.active = false
     end
     @advertiser.save
     redirect_to @advertiser
@@ -59,12 +59,12 @@ class AdvertisersController < ApplicationController
 
 	def advertiser_params
 		params.require(:advertiser).permit(
-			:name,
+			:company_name,
 			:email,
 			:contact_name,
 			:phone,
 			:cnpj,
-			:status,
+			:active,
 			:created_at,
 			:updated_at
 		)

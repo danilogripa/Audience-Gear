@@ -1,6 +1,6 @@
 <div class="row">
 	<div class="col-md-12">
-		<h1 class="page-header">Campaign #<%= @campaign.id %></h1>
+		<h2 class="page-header">Campaign: <strong><%= @campaign.name %></strong></h2>
 	</div>
 </div>
 <div class="row">
@@ -25,24 +25,24 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-2 text-right">Company Name: </div>
-					<div class="col-md-10"><strong><%= @campaign.company_name %></strong></div>
+					<div class="col-md-2 text-right">Name: </div>
+					<div class="col-md-10"><strong><%= @campaign.name %></strong></div>
 				</div>
 				<div class="row">
-					<div class="col-md-2 text-right">Email: </div>
-					<div class="col-md-10 text-left"><strong><%= @campaign.email %></strong></div>
+					<div class="col-md-2 text-right">Advertiser: </div>
+					<div class="col-md-10 text-left"><strong><%= @campaign.advertiser.company_name %></strong></div>
 				</div>
 				<div class="row">
-					<div class="col-md-2 text-right">Contact Name: </div>
-					<div class="col-md-10 text-left"><strong><%= @campaign.contact_name %></strong></div>
+					<div class="col-md-2 text-right">Campaign Type: </div>
+					<div class="col-md-10 text-left"><strong><%= @campaign.campaign_type %></strong></div>
 				</div>
 				<div class="row">
-					<div class="col-md-2 text-right">Phone: </div>
-					<div class="col-md-10 text-left"><strong><%= @campaign.phone %></strong></div>
+					<div class="col-md-2 text-right">Start Date: </div>
+					<div class="col-md-10 text-left"><strong><%= @campaign.start_date %></strong></div>
 				</div>
 				<div class="row">
-					<div class="col-md-2 text-right">Cnpj: </div>
-					<div class="col-md-10 text-left"><strong><%= @campaign.cnpj %></strong></div>
+					<div class="col-md-2 text-right">End Date: </div>
+					<div class="col-md-10 text-left"><strong><%= @campaign.end_date %></strong></div>
 				</div>
 				<div class="row">
 					<div class="col-md-2 text-right">Rtg Tag: </div>
@@ -59,9 +59,9 @@
 <div class="row">
 	<div class="col-md-12">
 		<div class="panel panel-default">
-		  <div class="panel-heading">Sites Information <%= link_to "New Site", new_site_path(campaign_id: @campaign.id), class: "btn btn-.primary" %></div>
-			<% if @campaign.sites.count <= 0 %>
-				<div class="text-center text-danger">Usuario não possui site cadastrado</div>
+		  <div class="panel-heading">Affiliate Information <%= link_to "New Affiliate", new_affiliate_path(campaign_id: @campaign.id), class: "btn btn-.primary" %></div>
+			<% if @campaign.affiliates.count <= 0 %>
+				<div class="text-center text-danger">Usuario não possui affiliates cadastrado</div>
 			<% else %>
 			  <table class="table">
 						<tr>
@@ -71,21 +71,21 @@
 							<th></th>
 							<th></th>
 						</tr>
-					<% @campaign.sites.each do |site| %>
+					<% @campaign.affiliates.each do |affiliate| %>
 						<tr>
-							<td><%= site.url %></td>
-							<td><%= site.name %></td>
+							<td><%= affiliate.url %></td>
+							<td><%= affiliate.name %></td>
 							<td>
-								<%= link_to site_active_path(site) do %>
-									<% if site.active == true %>
+								<%= link_to affiliate_active_path(affiliate) do %>
+									<% if affiliate.active == true %>
 										On
 									<% else %>
 										Off
 									<% end %>
 								<% end %>
 							</td>
-							<td><%= link_to "Edit", edit_site_path(site)  %></td>
-							<td><%= link_to 'Delete', site_path(site), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+							<td><%= link_to "Edit", edit_affiliate_path(affiliate)  %></td>
+							<td><%= link_to 'Delete', affiliate_path(affiliate), method: :delete, data: { confirm: 'Are you sure?' } %></td>
 						</tr>
 					<% end %>
 				</table>

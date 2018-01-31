@@ -7,7 +7,7 @@ class CreateAdvertisers < ActiveRecord::Migration[5.1]
       t.string :contact_name
       t.string :contact_phone
       t.string :cnpj
-      t.boolean :status
+      t.boolean :active, default: true
 
       t.timestamps
     end

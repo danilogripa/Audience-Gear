@@ -7,7 +7,7 @@
 	<div class="col-md-12">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				Users List
+				Campaigns List
 			</div>
 			<div class="panel-body">
 				<div class="row">
@@ -24,9 +24,9 @@
 						<thead>
 							<tr>
 								<td>id</td>
-								<td>Company Name</td>
-								<td>Email</td>
-								<td>Phone</td>
+								<td>campaign_type</td>
+								<td>start_date</td>
+								<td>end_date</td>
 								<td></td>
 							</tr>
 						</thead>
@@ -34,9 +34,9 @@
 							<% @campaigns.each do |campaign| %>
 								<tr>
 									<td><%= campaign.id %></td>
-									<td><%= campaign.company_name %></td>
-									<td><%= campaign.email %></td>
-									<td><%= campaign.phone %></td>
+									<td><%= get_campaign_type_name(campaign.campaign_type) %></td>
+									<td><%= campaign.start_date %></td>
+									<td><%= campaign.end_date %></td>
 									<td>
 										<%= link_to "Show", campaign_path(campaign) %>
 										<%= link_to "Edit", edit_campaign_path(campaign) %>

@@ -10,11 +10,12 @@ Rails.application.routes.draw do
     get "active"
   end
 
-  resources :sites do
+  resources :affiliates do
     get "active"
   end
 
   get '/rtg' => 'retargeting#index'
+  get '/teste' => 'retargeting#testando'
 
 
   root to: "campaigns#index"

@@ -11,15 +11,15 @@
 				<div class="row">
 					<div class="col-md-2 text-right">Status: </div>
 					<div class="col-md-10">
-						<% if @advertiser.status? == true %>
+						<% if @advertiser.active? == true %>
 							<strong>On</strong>
 						<% else %>
 							<strong>Off</strong>
 						<% end %>
 
 						<%= link_to advertiser_active_path(@advertiser.id) do %>
-							<%= "Ativar" if @advertiser.status? == false %>
-							<%= "Desativar" if @advertiser.status? == true %>
+							<%= "Ativar" if @advertiser.active? == false %>
+							<%= "Desativar" if @advertiser.active? == true %>
 						<% end %>
 
 					</div>

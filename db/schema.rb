@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180130174955) do
+ActiveRecord::Schema.define(version: 20180130233645) do
 
   create_table "admin_users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -36,35 +36,33 @@ ActiveRecord::Schema.define(version: 20180130174955) do
     t.string "contact_name"
     t.string "contact_phone"
     t.string "cnpj"
-    t.boolean "status"
+    t.boolean "active", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "affiliates", force: :cascade do |t|
+    t.integer "campaign_id"
+    t.string "name"
+    t.string "url"
+    t.string "category"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "partner"
+    t.boolean "active", default: true
+    t.index ["campaign_id"], name: "index_affiliates_on_campaign_id"
+  end
+
   create_table "campaigns", force: :cascade do |t|
-    t.string "company_name"
-    t.string "email"
-    t.string "contact_name"
-    t.string "phone"
-    t.string "cnpj"
     t.integer "campaign_type"
     t.boolean "status", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "rtg_tag"
-  end
-
-  create_table "sites", force: :cascade do |t|
-    t.integer "campaign_id"
     t.string "name"
-    t.string "url"
-    t.string "category"
-    t.string "type_site"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.text "partner"
-    t.boolean "active", default: true
-    t.index ["campaign_id"], name: "index_sites_on_campaign_id"
+    t.integer "advertiser_id"
+    t.datetime "start_date"
+    t.datetime "end_date"
   end
 
 end

@@ -14,7 +14,7 @@ class CampaignsController < ApplicationController
 		@campaign = Campaign.new(campaign_params)
 		if @campaign.save
 			#http://stalksystem-dev.sa-east-1.elasticbeanstalk.com
-			@campaign.rtg_tag = "<script type=\"text/javascript\" src=\"http://stalksystem-dev.sa-east-1.elasticbeanstalk.com/rtg?campaign=#{@campaign.id}&name=#{@campaign.company_name}\"></script>"
+			@campaign.rtg_tag = "<script type=\"text/javascript\" src=\"http://stalksystem-dev.sa-east-1.elasticbeanstalk.com/rtg?campaign=#{@campaign.advertiser.id}&name=#{@campaign.advertiser.company_name}\"></script>"
 			@campaign.save
 			redirect_to @campaign
 		else
@@ -61,12 +61,11 @@ class CampaignsController < ApplicationController
 
 	def campaign_params
 		params.require(:campaign).permit(
-			:company_name,
-			:email,
-			:contact_name,
-			:phone,
-			:cnpj,
+			:name,
+			:advertiser_id,
 			:campaign_type,
+			:start_date,
+			:end_date,
 			:status,
 			:created_at,
 			:updated_at,

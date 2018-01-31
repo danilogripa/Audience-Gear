@@ -2,15 +2,15 @@
 
 	<div class="row">
 		<div class="col-md-12">
-			<h3 class="page-header">User Information</h3>
+			<h3 class="page-header">Campaign Information</h3>
 		</div>
 	</div>
 
 	<div class="row">
 		<div class="col-md-12">
 			<div class="form_group">
-				<%= f.label :company_name %>
-				<%= f.text_field :company_name, class: "form-control", placeholder: "Enter the company name." %>
+				<%= f.label :name %>
+				<%= f.text_field :name, class: "form-control", placeholder: "Enter the name campaign." %>
 				<p class="help-block"></p>
 			</div>
 		</div>
@@ -19,15 +19,17 @@
 	<div class="row">
 		<div class="col-md-6">
 			<div class="form_group">
-				<%= f.label :email %>
-				<%= f.text_field :email, class: "form-control", placeholder: "Enter the company name." %>
+				<%= f.label "advertisers" %>
+				<%= f.collection_select(:advertiser_id, Advertiser.where(active: true), :id, :company_name,{}, { class: "form-control" }) %>
+				<%#= f.text_field :advertiser_id, class: "form-control" %>
 				<p class="help-block"></p>
 			</div>
 		</div>
 		<div class="col-md-6">
 			<div class="form_group">
-				<%= f.label :contact_name %>
-				<%= f.text_field :contact_name, class: "form-control", placeholder: "Enter the contact name." %>
+				<%= f.label :campaign_type %>
+				<%= f.select(:campaign_type, [['CPC', 1], ['Email Mkt', 2]], {}, { class: "form-control" }) %>
+				<%#= f.text_field :campaign_type, class: "form-control" %>
 				<p class="help-block"></p>
 			</div>
 		</div>
@@ -36,15 +38,15 @@
 	<div class="row">
 		<div class="col-md-6">
 			<div class="form_group">
-				<%= f.label :phone %>
-				<%= f.text_field :phone, class: "form-control", placeholder: "Example: (00) 0000-0000." %>
+				<%= f.label :start_date %>
+				<%= f.text_field :start_date, class: "form-control" %>
 				<p class="help-block"></p>
 			</div>
 		</div>
 		<div class="col-md-6">
 			<div class="form_group">
-				<%= f.label :cnpj %>
-				<%= f.text_field :cnpj, class: "form-control", placeholder: "Example: 000.000.000/0000-00 or 000.000.000-00." %>
+				<%= f.label :end_date %>
+				<%= f.text_field :end_date, class: "form-control" %>
 				<p class="help-block"></p>
 			</div>
 		</div>
