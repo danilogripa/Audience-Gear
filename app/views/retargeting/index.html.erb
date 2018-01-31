@@ -1,7 +1,7 @@
 <% if @affiliates.count > 0 %>
   <% @affiliates.each do |affiliate| %>
       <%= "// #{affiliate.name}\n"%>
-      <%= HTMLEntities.new.decode affiliate.partner %>
+      <%= raw affiliate.partner %>
       <%= "\n// END #{affiliate.name}\n"%>
   <% end %>
 <% else %>
