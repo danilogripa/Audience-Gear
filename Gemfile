@@ -26,6 +26,8 @@ gem 'devise'
 
 gem 'jquery-inputmask-rails'
 
+gem 'htmlentities'
+
 gem "font-awesome-rails"
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
