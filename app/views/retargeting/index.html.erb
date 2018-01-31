@@ -1,11 +1,9 @@
-<% if @affiliates.count > 0 %>
-  <pre style="word-wrap: break-word; white-space: pre-wrap;">
+<% if @affiliates.count > 0 %>  
     <% @affiliates.each do |affiliate| %>
         <%= "// #{affiliate.name}\n"%>
         <%= raw affiliate.partner %>
         <%= "\n// END #{affiliate.name}\n"%>
     <% end %>
-  </pre>
 <% else %>
   // Campanha desabilitada
 <% end %>
