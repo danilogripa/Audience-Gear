@@ -14,10 +14,10 @@ Rails.application.routes.draw do
     get "active"
   end
 
+  # retarget routes
   get '/rtg' => 'retargeting#index'
-  get '/teste' => 'retargeting#testando'
 
-
+  # main router
   root to: "campaigns#index"
 
 end

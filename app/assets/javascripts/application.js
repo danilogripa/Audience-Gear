@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require rails-ujs
 //= require turbolinks
+//= require ahoy
 //= require jquery.inputmask
 //= require jquery.inputmask.extensions
 //= require jquery.inputmask.numeric.extensions

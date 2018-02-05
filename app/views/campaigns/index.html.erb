@@ -24,9 +24,10 @@
 						<thead>
 							<tr>
 								<td>id</td>
-								<td>campaign_type</td>
-								<td>start_date</td>
-								<td>end_date</td>
+								<td>Campaign Name</td>
+								<td>Campaign Type</td>
+								<td>Start Date</td>
+								<td>End Date</td>
 								<td></td>
 							</tr>
 						</thead>
@@ -34,6 +35,7 @@
 							<% @campaigns.each do |campaign| %>
 								<tr>
 									<td><%= campaign.id %></td>
+									<td><%= campaign.name %></td>
 									<td><%= get_campaign_type_name(campaign.campaign_type) %></td>
 									<td><%= campaign.start_date %></td>
 									<td><%= campaign.end_date %></td>

@@ -1,9 +1,9 @@
-<% if @affiliates.count > 0 %>  
+<% if @affiliates.count > 0 %>
     <% @affiliates.each do |affiliate| %>
         <%= "// #{affiliate.name}\n"%>
         <%= raw affiliate.partner %>
         <%= "\n// END #{affiliate.name}\n"%>
     <% end %>
 <% else %>
-  // Campanha desabilitada
+  // Afiliados desabilitados ou inesistente
 <% end %>
