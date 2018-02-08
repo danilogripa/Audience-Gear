@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180202135108) do
+ActiveRecord::Schema.define(version: 20180208151749) do
 
   create_table "admin_users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 20180202135108) do
     t.datetime "updated_at", null: false
     t.text "partner"
     t.boolean "active", default: true
+    t.integer "advertiser_id"
     t.index ["campaign_id"], name: "index_affiliates_on_campaign_id"
   end
 

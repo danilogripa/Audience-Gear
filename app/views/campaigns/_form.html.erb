@@ -7,21 +7,10 @@
 	</div>
 
 	<div class="row">
-		<div class="col-md-12">
+		<div class="col-md-6">
 			<div class="form_group">
 				<%= f.label :name %>
 				<%= f.text_field :name, class: "form-control", placeholder: "Enter the name campaign." %>
-				<p class="help-block"></p>
-			</div>
-		</div>
-	</div>
-
-	<div class="row">
-		<div class="col-md-6">
-			<div class="form_group">
-				<%= f.label "advertisers" %>
-				<%= f.collection_select(:advertiser_id, Advertiser.where(active: true), :id, :company_name,{}, { class: "form-control" }) %>
-				<%#= f.text_field :advertiser_id, class: "form-control" %>
 				<p class="help-block"></p>
 			</div>
 		</div>

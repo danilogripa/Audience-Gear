@@ -56,7 +56,8 @@ class AffiliatesController < ApplicationController
       :url,
       :category,
       :type_site,
-      :partner
+      :partner,
+      :advertiser_id
     )
   end
 

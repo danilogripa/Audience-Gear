@@ -14,7 +14,7 @@ class CampaignsController < ApplicationController
 		@campaign = Campaign.new(campaign_params)
 		if @campaign.save
 			#http://stalksystem-dev.sa-east-1.elasticbeanstalk.com
-			@campaign.rtg_tag = "<script type=\"text/javascript\" src=\"http://stalksystem-dev.sa-east-1.elasticbeanstalk.com/rtg?campaign=#{@campaign.advertiser.id}&name=#{@campaign.advertiser.company_name}\"></script>"
+			@campaign.rtg_tag = "<script type=\"text/javascript\" src=\"http://stalksystem-dev.sa-east-1.elasticbeanstalk.com/rtg?campaign=#{@campaign.id}&name=#{@campaign.name}\"></script>"
 			@campaign.save
 			redirect_to @campaign
 		else
@@ -70,7 +70,7 @@ class CampaignsController < ApplicationController
 			:created_at,
 			:updated_at,
 			:rtg_tag,
-			sites_attributes: [
+			affiliates_attributes: [
 				:name,
 				:url,
 				:category,

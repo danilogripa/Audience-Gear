@@ -1,4 +1,4 @@
-<div class="row">
+	<div class="row">
 	<div class="col-md-12">
 		<h1 class="page-header">Advertiser #<%= @advertiser.id %></h1>
 	</div>
@@ -45,6 +45,42 @@
 					<div class="col-md-10 text-left"><strong><%= @advertiser.cnpj %></strong></div>
 				</div>
 			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-12">
+		<div class="panel panel-default">
+		  <div class="panel-heading">Affiliates Information</div>
+		  	<% if @advertiser.affiliates.count <= 0 %>
+					<div class="text-center text-danger">Usuario não possui affiliates cadastrado</div>
+				<% else %>
+				  <table class="table">
+							<tr>
+								<th>Name</th>
+								<th>Status</th>
+								<th></th>
+								<th></th>
+							</tr>
+						<% @advertiser.affiliates.each do |affiliate| %>
+							<tr>
+								<td><%= affiliate.name %></td>
+								<td>
+									<%= link_to affiliate_active_path(affiliate) do %>
+										<% if affiliate.active == true %>
+											On
+										<% else %>
+											Off
+										<% end %>
+									<% end %>
+								</td>
+								<td><%= link_to "Edit", edit_affiliate_path(affiliate)  %></td>
+								<td><%= link_to 'Delete', affiliate_path(affiliate), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+							</tr>
+						<% end %>
+					</table>
+				<% end %>
 		</div>
 	</div>
 </div>
