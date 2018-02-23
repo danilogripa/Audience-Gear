@@ -9,7 +9,6 @@ class RetargetingController < ActionController::Base
       @campaign.affiliates.where(active: true).each do |affiliate|
         affiliate.partner = affiliate.partner.gsub("{CAMPAIGN_ID}", params["campaign_id"])
         affiliate.partner = affiliate.partner.gsub("{CAMPAIGN_NAME}", params["campaign_name"])
-        # options params
         affiliate.partner = affiliate.partner.gsub("{TYPE}", params["type"]) if params["type"]
         affiliate.partner = affiliate.partner.gsub("{PRODUCT_ID1}", params["product_id1"]) if params["product_id1"]
         affiliate.partner = affiliate.partner.gsub("{ID_CATEGORY}", params["id_category"]) if params["id_category"]
