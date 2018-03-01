@@ -29,6 +29,10 @@
 					<div class="col-md-10"><strong><%= @advertiser.company_name %></strong></div>
 				</div>
 				<div class="row">
+					<div class="col-md-2 text-right">Advertiser Type: </div>
+					<div class="col-md-10"><strong><%= get_advertiser_type_name(@advertiser.advertiser_type) %></strong></div>
+				</div>
+				<div class="row">
 					<div class="col-md-2 text-right">Email: </div>
 					<div class="col-md-10 text-left"><strong><%= @advertiser.email %></strong></div>
 				</div>

@@ -66,7 +66,8 @@ class AdvertisersController < ApplicationController
 			:cnpj,
 			:active,
 			:created_at,
-			:updated_at
+			:updated_at,
+			:advertiser_type
 		)
 	end
 end

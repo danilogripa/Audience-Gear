@@ -7,10 +7,18 @@
 	</div>
 
 	<div class="row">
-		<div class="col-md-12">
+		<div class="col-md-6">
 			<div class="form_group">
 				<%= f.label :company_name %>
 				<%= f.text_field :company_name, class: "form-control", placeholder: "Enter the company name." %>
+				<p class="help-block"></p>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="form_group">
+				<%= f.label :advertiser_type %>
+				<%= f.select(:advertiser_type, [['Network', 1], ['E-Commerce', 2], ['Trading Desk', 3]], {}, { class: "form-control" }) %>
+				<%#= f.text_field :campaign_type, class: "form-control" %>
 				<p class="help-block"></p>
 			</div>
 		</div>
