@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  get 'pages/index'
+  post 'pages/send_email'
+
   devise_for :admin_users
 
   resources :advertisers do
@@ -18,6 +21,6 @@ Rails.application.routes.draw do
   get '/rtg' => 'retargeting#index'
 
   # main router
-  root to: "campaigns#index"
+  root to: "pages#index"
 
 end

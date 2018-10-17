@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Audience Gear</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'pages', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  </head>
+  <body>
+
+    <header>
+      <a href="#" class="logo">
+        <img src="assets/logo.png" alt="" width="150">
+      </a>
+
+      <nav>
+        <li><a href="#"><i data-feather="user"></i> login</a></li>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <h1>Gerencie suas tags de <span>retargeting</span> <br> de forma fácil, simples <br>e transparente.</h1>
+      <a href="#" class="bt-contact" id="bt_slide_contato">
+        Entre em contato
+      </a>
+    </section>
+
+    <section class="pag-info">
+      <ul>
+        <li>
+          <h1>O que fazemos</h1>
+          <p>Com o Audience Gear, você e seus anunciantes podem integrar e gerenciar as Tags de seus principais parceiros sem qualquer esforço, tudo através da mesma plataforma e sem precisar da ajuda do seu time de TI, deixando eles focados no que realmente importa... League of Legends, Dota, Counter Strike :)</p>
+          <p>Além da tecnologia simples e segura das Mastertags para Retargeting, o Audience Gear fornece uma interface transparente e fácil para a integração e controle de serviços em seus sites e/ou nos sites dos seus anunciantes.</p>
+          <p>A Mastertag é integrada no site apenas uma vez. Depois disso, você pode adicionar, remover, pausar e configurar novos serviços e aplicativos em seu e-commerce ou site, com facilidade e flexibilidade, sem tocar no código do site.</p>
+          <p>Nossa Mastertag é carregada de forma assíncrona justamente para não prejudicar e nem alterar o carregamento do seu site.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="description">
+      <h1>Vantagens</h1>
+      <ul>
+        <li>
+          <img src="assets/bullseye2.png" alt="" width="150">
+          <h2>Bullseye</h2>
+          <p>Seus anúncios vão acertar sempre na mosca! Escolha exatamente a audiência que deseja impactar de acordo com o perfil de navegação e compra do usuário.</p>
+        </li>
+        <li>
+          <img src="assets/getoverhere2.png" alt="" width="150">
+          <h2>Get over Here!</h2>
+          <p>Calma, não vá embora! Re-impacte visitantes que abandonaram seu site em qualquer página com ads personalizados.</p>
+        </li>
+        <li>
+          <img src="assets/sauron.png" alt="" width="150">
+          <h2>I see yooouuu</h2>
+          <p>Dê-me visão além do alcance! Entenda exatamente como funciona o seu funil e os pontos que precisam de mais atenção. Ative apps e parceiros focados nas suas necessidades.</p>
+        </li>
+      </ul>
+
+      <h1>e mais...</h1>
+
+      <ul>
+        <li>Ativar/Desativar parceiros com tecnologias de Abandono de Carrinho, Overlay e etc</li>
+        <li>Definir duração das Tags e Campanhas.</li>
+        <li>Definir quantos anúncios serão apresentados por dia/usuário.</li>
+      </ul>
+
+    </section>
+
+    <section class="security">
+      <ul>
+        <li>
+          <h1>Segurança</h1>
+          <p>O Audience Gear te ajuda a testar todas as Tags de terceiros antes de qualquer implementação. Because the Web is Dark and Full of Terrors.</p>
+          <p><img src="assets/ok.png" alt="" width="18px"> Validação quanto a Sintaxe do Código.</p>
+          <p><img src="assets/ok.png" alt="" width="18px"> Verificação de scripts Maliciosos, criptografados e Chamadas Externas.</p>
+          <p><img src="assets/ok.png" alt="" width="18px"> Auditoria geral de segurança.</p>
+          <p><img src="assets/ok.png" alt="" width="18px"> Analise do Tempo de Carregamento.</p>
+          <br>
+          <p>Após a Implementação:</p>
+          <p><img src="assets/ok.png" alt="" width="18px"> Testes automáticos periódicos.</p>
+          <p><img src="assets/ok.png" alt="" width="18px"> Alertas automáticos de falhas e/ou anomalias.</p>
+          <p><img src="assets/ok.png" alt="" width="18px"> Cobranças automáticas de validação de Tag de Terceiros.</p>
+        </li>
+        <li class="text-center">
+          <img src="assets/security.png" alt="" class="security-img">
+        </li>
+      </ul>
+    </section>
+
+    <section id="contato" class="register">
+      <h2>Solicite um contato do nosso comercial para betermos um papo!</h2>
+      <%= form_tag(pages_send_email_path, method: "post") do %>
+        <input type="name" name="name" value="" placeholder="Seu Nome">
+        <input type="email" name="email" value="" placeholder="Email">
+        <textarea name="description" rows="5" cols="50">Mensagem...</textarea>
+        <button type="submit" name="button">Enviar</button>
+      <% end %>
+    </section>
+
+    <footer>
+      <h2>Audience Gear &copy; 2018</h2>
+    </footer>
+
+  </body>
+  <script type="text/javascript">
+    $('#bt_slide_contato').click(function(event){
+      event.preventDefault();
+      $('html, body').animate({
+          scrollTop: $('#contato').position().top
+      }, 1500);
+    });
+  </script>
+</html>
